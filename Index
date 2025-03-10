@@ -1,68 +1,304 @@
-html_content = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mimic - Investor Proposal</title>
     <style>
+        /* Base styles and colors */
+        :root {
+            --main-bg: #121212;
+            --card-bg: #1e1e1e;
+            --text: #ffffff;
+            --accent: #f8b400;
+            --accent-hover: #ffcb52;
+            --link: #4da6ff;
+            --border: #444;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            color: #ffffff;
+            background-color: var(--main-bg);
+            color: var(--text);
+            line-height: 1.6;
         }
+        
+        /* Layout structure */
         .container {
             width: 90%;
-            max-width: 900px;
+            max-width: 1200px;
             margin: auto;
             padding: 20px;
         }
-        h1, h2 {
+        
+        /* Navigation */
+        nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 15px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent);
+        }
+        
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
             text-align: center;
-            color: #f8b400;
+            color: var(--accent);
+            margin: 40px 0;
         }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            text-align: left;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            color: var(--accent);
+        }
+        
+        /* Section Styling */
+        .category-header {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            margin: 50px 0 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
         .section {
+            background-color: var(--card-bg);
             margin-bottom: 40px;
-            border-bottom: 1px solid #444;
-            padding-bottom: 20px;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section h2 {
+            text-align: left;
+            margin-top: 0;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+        
+        /* Highlight and text elements */
         .highlight {
-            color: #f8b400;
+            color: var(--accent);
+            font-weight: 600;
         }
+        
+        /* Lists and quotes */
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        /* Links */
+        a {
+            color: var(--link);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background-color 0.2s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-hover);
+            text-decoration: none;
+        }
+        
+        /* Tables */
         .budget-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        .budget-table th, .budget-table td {
-            border: 1px solid #444;
-            padding: 8px;
+        
+        .budget-table th, 
+        .budget-table td {
+            padding: 12px 15px;
             text-align: left;
+            border-bottom: 1px solid var(--border);
         }
+        
         .budget-table th {
-            background-color: #222;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: var(--accent);
+            font-weight: 600;
         }
-        a {
-            color: #4da6ff;
+        
+        .budget-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .budget-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .budget-table tr:last-child {
+            background-color: rgba(248, 180, 0, 0.1);
+            font-weight: bold;
+        }
+        
+        /* Investment box styling */
+        .investment-option {
+            background-color: rgba(248, 180, 0, 0.1);
+            border-left: 3px solid var(--accent);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid var(--border);
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--accent);
+            color: black;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
-        a:hover {
-            text-decoration: underline;
+        
+        .back-to-top:hover {
+            opacity: 1;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+            
+            .nav-links {
+                gap: 10px;
+            }
         }
     </style>
 </head>
-<body>
+<body id="top">
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Red Fox Features</div>
+            <div class="nav-links">
+                <a href="#summary">Summary</a>
+                <a href="#investment">Investment</a>
+                <a href="#budget">Budget</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <h1>Mimic - Investor Proposal</h1>
-
-        <div class="section">
+        
+        <div class="section" id="summary">
             <h2>1. Executive Summary</h2>
             <p><span class="highlight">Mimic</span> is a high-concept psychological thriller designed to function as both a festival-caliber standalone short film and a proof of concept for a feature adaptation. By leveraging industry connections, a lean but effective production model, and a commercially viable concept, <span class="highlight">Mimic</span> represents an exciting investment opportunity in a growing slate of films under Red Fox Features.</p>
         </div>
 
         <div class="section">
-            <h2>2. Red Fox’s Competitive Edge</h2>
+            <h2>2. Red Fox's Competitive Edge</h2>
             <ul>
                 <li><span class="highlight">Industry Relationships</span> – Our team includes high-level technicians from major film sets, with years of personal and professional relationships that emphasize long-term collaboration and credibility.</li>
                 <li><span class="highlight">In-House Post-Production</span> – We reduce costs while maintaining quality by handling editing, sound design, and color grading ourselves.</li>
@@ -70,24 +306,38 @@ html_content = """<!DOCTYPE html>
             </ul>
         </div>
 
-        <div class="section">
+        <div class="section" id="investment">
             <h2>3. Investment Breakdown</h2>
-            <ul>
-                <li><strong>$5,000</strong> → 6.25% Ownership</li>
-                <li><strong>$12,000</strong> → 15% Ownership</li>
-                <li><strong>$15,000</strong> → 18% Ownership</li>
-            </ul>
+            
+            <div class="investment-option">
+                <h3>$5,000 → 6.25% Ownership</h3>
+                <p>Entry-level investment opportunity with significant potential returns.</p>
+            </div>
+            
+            <div class="investment-option">
+                <h3>$12,000 → 15% Ownership</h3>
+                <p>Mid-tier investment with proportionally higher equity stake.</p>
+            </div>
+            
+            <div class="investment-option">
+                <h3>$15,000 → 18% Ownership</h3>
+                <p>Premium investment tier with our highest standard equity offering.</p>
+            </div>
+            
             <h3>Optional Festival Expansion Investment:</h3>
             <ul>
                 <li>$12,000 Investor: Additional $2,400 → +3% (Total 18%)</li>
                 <li>$15,000 Investor: Additional $1,600 → +2% (Total 20%)</li>
             </ul>
-            <p><strong>Max investor ownership:</strong> 20% per individual (to maintain creative control).<br>
-            <strong>Remaining available equity:</strong> 16% (~$12,800 open to new investors).<br>
-            <strong>Valuation:</strong> $800 per 1% stake based on a $30,000 total budget.</p>
+            
+            <div style="background-color: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; margin-top: 20px;">
+                <p><strong>Max investor ownership:</strong> 20% per individual (to maintain creative control).</p>
+                <p><strong>Remaining available equity:</strong> 16% (~$12,800 open to new investors).</p>
+                <p><strong>Valuation:</strong> $800 per 1% stake based on a $30,000 total budget.</p>
+            </div>
         </div>
 
-        <div class="section">
+        <div class="section" id="budget">
             <h2>4. Budget Breakdown</h2>
             <table class="budget-table">
                 <tr>
@@ -127,29 +377,63 @@ html_content = """<!DOCTYPE html>
 
         <div class="section">
             <h2>5. Investor Perks & Festival Strategy</h2>
-            <ul>
-                <li>VIP Festival Access – Invitations, badges, and exclusive networking opportunities.</li>
-                <li>Private Investor Screening – Exclusive early access to the film.</li>
-                <li>Executive Producer Credit – IMDb listing, name in film credits, and festival recognition.</li>
-                <li>Production Experience Perks – Set visits, signed memorabilia, behind-the-scenes access.</li>
-            </ul>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div style="background-color: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px;">
+                    <h3 style="margin-top: 0;">VIP Festival Access</h3>
+                    <p>Invitations, badges, and exclusive networking opportunities at film festivals where Mimic is screened.</p>
+                </div>
+                
+                <div style="background-color: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px;">
+                    <h3 style="margin-top: 0;">Private Investor Screening</h3>
+                    <p>Exclusive early access to the film before public or festival premieres.</p>
+                </div>
+                
+                <div style="background-color: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px;">
+                    <h3 style="margin-top: 0;">Executive Producer Credit</h3>
+                    <p>IMDb listing, name in film credits, and festival recognition.</p>
+                </div>
+                
+                <div style="background-color: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px;">
+                    <h3 style="margin-top: 0;">Production Experience</h3>
+                    <p>Set visits, signed memorabilia, behind-the-scenes access and documentation.</p>
+                </div>
+            </div>
         </div>
 
         <div class="section">
             <h2>6. Future Projects & Scalability</h2>
             <p>Mimic is a stepping stone to securing larger projects. Red Fox Features is actively developing additional high-concept short films positioned for feature expansion.</p>
+            
+            <div style="background-color: rgba(248, 180, 0, 0.1); padding: 15px; border-radius: 8px; margin-top: 20px;">
+                <h3 style="margin-top: 0;">Our Long-Term Vision</h3>
+                <p>Investment in Mimic is more than a single project opportunity - it's joining our growing production company with plans for multiple profitable film projects and potential feature expansions in the coming years.</p>
+            </div>
         </div>
 
-        <div class="section">
+        <div class="section" id="contact">
             <h2>7. Next Steps & Contact Info</h2>
             <p>If you're interested, we'd love to discuss your investment level and finalize an agreement.</p>
             <p>We can arrange a <span class="highlight">follow-up meeting</span> with our full team to answer any remaining questions.</p>
-            <p>If you’d like to move forward, we’ll provide <span class="highlight">legal documentation</span> outlining the exact terms.</p>
-            <p>For further inquiries, please contact:</p>
-            <p><strong>[Your Name]</strong><br>
-            [Your Contact Information]<br>
-            Red Fox Features</p>
+            <p>If you'd like to move forward, we'll provide <span class="highlight">legal documentation</span> outlining the exact terms.</p>
+            
+            <div style="background-color: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; margin-top: 20px; text-align: center;">
+                <h3>Contact Information</h3>
+                <p><strong>[Your Name]</strong><br>
+                [Your Email]<br>
+                [Your Phone Number]<br>
+                Red Fox Features</p>
+                
+                <a href="mailto:[your-email]" class="btn">Email Us</a>
+            </div>
         </div>
     </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Red Fox Features. All rights reserved.</p>
+    </footer>
+    
+    <!-- Back to top button -->
+    <a href="#top" class="back-to-top">↑</a>
 </body>
 </html>
