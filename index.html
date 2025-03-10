@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Mimic - Investor Proposal</title>
     <style>
         /* Base styles and colors */
@@ -289,51 +289,16 @@
                 overflow-x: hidden;
             }
             
-            /* Force table to not be like tables on mobile */
-            .budget-table, 
-            .budget-table thead, 
-            .budget-table tbody, 
-            .budget-table th, 
-            .budget-table td, 
-            .budget-table tr { 
-                display: block; 
+            /* Simpler mobile table fixes */
+            .budget-table {
                 width: 100%;
+                font-size: 0.9rem;
             }
             
-            /* Hide table headers */
-            .budget-table thead tr { 
-                position: absolute;
-                top: -9999px;
-                left: -9999px;
+            .budget-table th, 
+            .budget-table td {
+                padding: 8px 5px;
             }
-            
-            .budget-table tr { 
-                margin-bottom: 10px;
-                border: 1px solid var(--border);
-                border-radius: 5px;
-                overflow: hidden;
-            }
-            
-            .budget-table td { 
-                border: none;
-                position: relative;
-                padding-left: 50%; 
-                text-align: right;
-            }
-            
-            .budget-table td:before { 
-                position: absolute;
-                top: 12px;
-                left: 12px;
-                width: 45%; 
-                padding-right: 10px; 
-                text-align: left;
-                font-weight: bold;
-                content: attr(data-label);
-            }
-            
-            .budget-table td:nth-of-type(1):before { content: "Category"; }
-            .budget-table td:nth-of-type(2):before { content: "Estimated Cost"; }
             
             /* Adjustments for grid layouts */
             [style*="grid-template-columns"] {
@@ -482,32 +447,32 @@
                     <th>Estimated Cost</th>
                 </tr>
                 <tr>
-                    <td>Location</td>
-                    <td>$6,000</td>
+                    <td data-label="Category">Location</td>
+                    <td data-label="Estimated Cost">$6,000</td>
                 </tr>
                 <tr>
-                    <td>Crew (2 Days)</td>
-                    <td>$8,000</td>
+                    <td data-label="Category">Crew (2 Days)</td>
+                    <td data-label="Estimated Cost">$8,000</td>
                 </tr>
                 <tr>
-                    <td>Food (Catering)</td>
-                    <td>$3,000</td>
+                    <td data-label="Category">Food (Catering)</td>
+                    <td data-label="Estimated Cost">$3,000</td>
                 </tr>
                 <tr>
-                    <td>Gear Rentals</td>
-                    <td>$4,000</td>
+                    <td data-label="Category">Gear Rentals</td>
+                    <td data-label="Estimated Cost">$4,000</td>
                 </tr>
                 <tr>
-                    <td>Miscellaneous</td>
-                    <td>$3,000</td>
+                    <td data-label="Category">Miscellaneous</td>
+                    <td data-label="Estimated Cost">$3,000</td>
                 </tr>
                 <tr>
-                    <td>Festival Submissions</td>
-                    <td>$4,000</td>
+                    <td data-label="Category">Festival Submissions</td>
+                    <td data-label="Estimated Cost">$4,000</td>
                 </tr>
                 <tr>
-                    <td><strong>Total</strong></td>
-                    <td><strong>$30,000</strong></td>
+                    <td data-label="Category"><strong>Total</strong></td>
+                    <td data-label="Estimated Cost"><strong>$30,000</strong></td>
                 </tr>
             </table>
         </div>
