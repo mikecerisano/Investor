@@ -255,22 +255,99 @@
             opacity: 1;
         }
         
-        /* Responsive design */
-        @media (max-width: 767px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.5rem;
-            }
-            
-            .section {
-                padding: 15px;
+        /* Mobile-specific fixes */
+        @media (max-width: 480px) {
+            .nav-container {
+                width: 100%;
+                padding: 0 10px;
+                flex-direction: column;
             }
             
             .nav-links {
-                gap: 10px;
+                margin-top: 10px;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .logo {
+                justify-content: center;
+            }
+            
+            h1 {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            h1 span {
+                text-align: center;
+            }
+            
+            .container {
+                width: 95%;
+                padding: 10px;
+                overflow-x: hidden;
+            }
+            
+            /* Force table to not be like tables on mobile */
+            .budget-table, 
+            .budget-table thead, 
+            .budget-table tbody, 
+            .budget-table th, 
+            .budget-table td, 
+            .budget-table tr { 
+                display: block; 
+                width: 100%;
+            }
+            
+            /* Hide table headers */
+            .budget-table thead tr { 
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            
+            .budget-table tr { 
+                margin-bottom: 10px;
+                border: 1px solid var(--border);
+                border-radius: 5px;
+                overflow: hidden;
+            }
+            
+            .budget-table td { 
+                border: none;
+                position: relative;
+                padding-left: 50%; 
+                text-align: right;
+            }
+            
+            .budget-table td:before { 
+                position: absolute;
+                top: 12px;
+                left: 12px;
+                width: 45%; 
+                padding-right: 10px; 
+                text-align: left;
+                font-weight: bold;
+                content: attr(data-label);
+            }
+            
+            .budget-table td:nth-of-type(1):before { content: "Category"; }
+            .budget-table td:nth-of-type(2):before { content: "Estimated Cost"; }
+            
+            /* Adjustments for grid layouts */
+            [style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+            }
+            
+            body {
+                width: 100vw;
+                overflow-x: hidden;
+            }
+            
+            html, body {
+                max-width: 100%;
+                overflow-x: hidden;
             }
         }
     </style>
