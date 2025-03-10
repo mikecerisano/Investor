@@ -1,0 +1,155 @@
+html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mimic - Investor Proposal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #f8b400;
+        }
+        .section {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 20px;
+        }
+        .highlight {
+            color: #f8b400;
+        }
+        .budget-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .budget-table th, .budget-table td {
+            border: 1px solid #444;
+            padding: 8px;
+            text-align: left;
+        }
+        .budget-table th {
+            background-color: #222;
+        }
+        a {
+            color: #4da6ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mimic - Investor Proposal</h1>
+
+        <div class="section">
+            <h2>1. Executive Summary</h2>
+            <p><span class="highlight">Mimic</span> is a high-concept psychological thriller designed to function as both a festival-caliber standalone short film and a proof of concept for a feature adaptation. By leveraging industry connections, a lean but effective production model, and a commercially viable concept, <span class="highlight">Mimic</span> represents an exciting investment opportunity in a growing slate of films under Red Fox Features.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. Red Fox’s Competitive Edge</h2>
+            <ul>
+                <li><span class="highlight">Industry Relationships</span> – Our team includes high-level technicians from major film sets, with years of personal and professional relationships that emphasize long-term collaboration and credibility.</li>
+                <li><span class="highlight">In-House Post-Production</span> – We reduce costs while maintaining quality by handling editing, sound design, and color grading ourselves.</li>
+                <li><span class="highlight">Business-Driven Approach</span> – We balance artistic vision with market viability, ensuring our projects have paths to distribution and monetization.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>3. Investment Breakdown</h2>
+            <ul>
+                <li><strong>$5,000</strong> → 6.25% Ownership</li>
+                <li><strong>$12,000</strong> → 15% Ownership</li>
+                <li><strong>$15,000</strong> → 18% Ownership</li>
+            </ul>
+            <h3>Optional Festival Expansion Investment:</h3>
+            <ul>
+                <li>$12,000 Investor: Additional $2,400 → +3% (Total 18%)</li>
+                <li>$15,000 Investor: Additional $1,600 → +2% (Total 20%)</li>
+            </ul>
+            <p><strong>Max investor ownership:</strong> 20% per individual (to maintain creative control).<br>
+            <strong>Remaining available equity:</strong> 16% (~$12,800 open to new investors).<br>
+            <strong>Valuation:</strong> $800 per 1% stake based on a $30,000 total budget.</p>
+        </div>
+
+        <div class="section">
+            <h2>4. Budget Breakdown</h2>
+            <table class="budget-table">
+                <tr>
+                    <th>Category</th>
+                    <th>Estimated Cost</th>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>$6,000</td>
+                </tr>
+                <tr>
+                    <td>Crew (2 Days)</td>
+                    <td>$8,000</td>
+                </tr>
+                <tr>
+                    <td>Food (Catering)</td>
+                    <td>$3,000</td>
+                </tr>
+                <tr>
+                    <td>Gear Rentals</td>
+                    <td>$4,000</td>
+                </tr>
+                <tr>
+                    <td>Miscellaneous</td>
+                    <td>$3,000</td>
+                </tr>
+                <tr>
+                    <td>Festival Submissions</td>
+                    <td>$4,000</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong>$30,000</strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>5. Investor Perks & Festival Strategy</h2>
+            <ul>
+                <li>VIP Festival Access – Invitations, badges, and exclusive networking opportunities.</li>
+                <li>Private Investor Screening – Exclusive early access to the film.</li>
+                <li>Executive Producer Credit – IMDb listing, name in film credits, and festival recognition.</li>
+                <li>Production Experience Perks – Set visits, signed memorabilia, behind-the-scenes access.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>6. Future Projects & Scalability</h2>
+            <p>Mimic is a stepping stone to securing larger projects. Red Fox Features is actively developing additional high-concept short films positioned for feature expansion.</p>
+        </div>
+
+        <div class="section">
+            <h2>7. Next Steps & Contact Info</h2>
+            <p>If you're interested, we'd love to discuss your investment level and finalize an agreement.</p>
+            <p>We can arrange a <span class="highlight">follow-up meeting</span> with our full team to answer any remaining questions.</p>
+            <p>If you’d like to move forward, we’ll provide <span class="highlight">legal documentation</span> outlining the exact terms.</p>
+            <p>For further inquiries, please contact:</p>
+            <p><strong>[Your Name]</strong><br>
+            [Your Contact Information]<br>
+            Red Fox Features</p>
+        </div>
+    </div>
+</body>
+</html>
